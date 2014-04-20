@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -26,7 +28,9 @@ public class Student implements Serializable {
     private String name;
     @Temporal(TemporalType.DATE)
     private Date birthDate;
-    
+    @ManyToOne
+    @JoinColumn(name = "FACULTY_ID")
+    private Faculty faculty;
 
     public Student() {
 
@@ -60,6 +64,14 @@ public class Student implements Serializable {
 
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public Faculty getFaculty() {
+        return faculty;
+    }
+
+    public void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
     }
 
     @Override

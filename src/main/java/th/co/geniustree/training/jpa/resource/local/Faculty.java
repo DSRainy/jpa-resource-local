@@ -26,8 +26,7 @@ public class Faculty implements Serializable {
     private Integer id;
     private String name;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "FACULTY_ID")
+    @OneToMany(cascade = CascadeType.PERSIST,mappedBy = "faculty")
     private List<Student> students;
 
     public List<Student> getStudents() {

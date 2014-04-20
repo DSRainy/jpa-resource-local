@@ -32,9 +32,11 @@ public class App {
         Student st2 = new Student(2, "Thanthathon", new Date());
         Student st3 = new Student(3, "Lovelove", new Date());
         eng.getStudents().add(st1);
+        st1.setFaculty(eng);
         eng.getStudents().add(st2);
         eng.getStudents().add(st3);
         em.persist(eng);
+        
         Query createQuery = em.createQuery("select f from Faculty f order by f.id"); // Select => beans (all row)
         List<Faculty> resultList = createQuery.getResultList();
         print(resultList);
