@@ -26,8 +26,10 @@ public class App1 {
 
         // Transaction Boundary
         em.getTransaction().begin();
+        
         Faculty fac = em.find(Faculty.class, 1);
         printSt(fac.getStudents());
+        
         em.getTransaction().commit();
         em.close();
         emf.close();

@@ -26,8 +26,8 @@ public class App {
 
         // Transaction Boundary
         em.getTransaction().begin();
+        
         Faculty eng = new Faculty(1, "Engineering");
-
         Student st1 = new Student(1, "Rainy", new Date());
         Student st2 = new Student(2, "Thanthathon", new Date());
         Student st3 = new Student(3, "Lovelove", new Date());
@@ -40,6 +40,7 @@ public class App {
         Query createQuery = em.createQuery("select f from Faculty f order by f.id"); // Select => beans (all row)
         List<Faculty> resultList = createQuery.getResultList();
         print(resultList);
+        
         em.getTransaction().commit();
         em.close();
         emf.close();
